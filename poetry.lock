@@ -1291,7 +1291,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "moto"
-version = "2.0.11"
+version = "2.2.6"
 description = "A library that allows your python tests to easily mock out the boto library"
 category = "dev"
 optional = false
@@ -1301,6 +1301,7 @@ python-versions = "*"
 boto3 = ">=1.9.201"
 botocore = ">=1.12.201"
 cryptography = ">=3.3.1"
+importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 Jinja2 = ">=2.10.1"
 MarkupSafe = "!=2.0.0a1"
 more-itertools = "*"
@@ -1308,28 +1309,25 @@ python-dateutil = ">=2.1,<3.0.0"
 pytz = "*"
 requests = ">=2.5"
 responses = ">=0.9.0"
-six = ">1.9"
 werkzeug = "*"
 xmltodict = "*"
 
 [package.extras]
-all = ["PyYAML (>=5.1)", "ecdsa (<0.15)", "docker (>=2.5.1)", "jsondiff (>=1.1.2)", "aws-xray-sdk (>=0.93,!=0.96)", "idna (>=2.5,<3)", "cfn-lint (>=0.4.0)", "python-jose[cryptography] (>=3.1.0,<3.3.0)", "decorator (<=4.4.2)", "sshpubkeys (==3.1.0)", "python-jose[cryptography] (>=3.1.0,<4.0.0)", "sshpubkeys (>=3.1.0)"]
-apigateway = ["ecdsa (<0.15)", "python-jose[cryptography] (>=3.1.0,<3.3.0)", "python-jose[cryptography] (>=3.1.0,<4.0.0)"]
+all = ["PyYAML (>=5.1)", "python-jose[cryptography] (>=3.1.0,<4.0.0)", "ecdsa (<0.15)", "docker (>=2.5.1)", "jsondiff (>=1.1.2)", "aws-xray-sdk (>=0.93,!=0.96)", "idna (>=2.5,<3)", "cfn-lint (>=0.4.0)", "sshpubkeys (>=3.1.0)", "setuptools"]
+apigateway = ["python-jose[cryptography] (>=3.1.0,<4.0.0)", "ecdsa (<0.15)"]
 awslambda = ["docker (>=2.5.1)"]
 batch = ["docker (>=2.5.1)"]
-cloudformation = ["docker (>=2.5.1)", "PyYAML (>=5.1)", "cfn-lint (>=0.4.0)", "decorator (<=4.4.2)"]
-cognitoidp = ["ecdsa (<0.15)", "python-jose[cryptography] (>=3.1.0,<3.3.0)", "python-jose[cryptography] (>=3.1.0,<4.0.0)"]
+cloudformation = ["docker (>=2.5.1)", "PyYAML (>=5.1)", "cfn-lint (>=0.4.0)"]
+cognitoidp = ["python-jose[cryptography] (>=3.1.0,<4.0.0)", "ecdsa (<0.15)"]
 dynamodb2 = ["docker (>=2.5.1)"]
 dynamodbstreams = ["docker (>=2.5.1)"]
-ec2 = ["docker (>=2.5.1)", "sshpubkeys (==3.1.0)", "sshpubkeys (>=3.1.0)"]
+ec2 = ["sshpubkeys (>=3.1.0)"]
+efs = ["sshpubkeys (>=3.1.0)"]
 iotdata = ["jsondiff (>=1.1.2)"]
 s3 = ["PyYAML (>=5.1)"]
-server = ["PyYAML (>=5.1)", "ecdsa (<0.15)", "docker (>=2.5.1)", "jsondiff (>=1.1.2)", "aws-xray-sdk (>=0.93,!=0.96)", "idna (>=2.5,<3)", "cfn-lint (>=0.4.0)", "flask", "flask-cors", "python-jose[cryptography] (>=3.1.0,<3.3.0)", "decorator (<=4.4.2)", "sshpubkeys (==3.1.0)", "python-jose[cryptography] (>=3.1.0,<4.0.0)", "sshpubkeys (>=3.1.0)"]
-ses = ["docker (>=2.5.1)"]
-sns = ["docker (>=2.5.1)"]
-sqs = ["docker (>=2.5.1)"]
-ssm = ["docker (>=2.5.1)", "PyYAML (>=5.1)", "cfn-lint (>=0.4.0)", "decorator (<=4.4.2)"]
-xray = ["aws-xray-sdk (>=0.93,!=0.96)"]
+server = ["PyYAML (>=5.1)", "python-jose[cryptography] (>=3.1.0,<4.0.0)", "ecdsa (<0.15)", "docker (>=2.5.1)", "jsondiff (>=1.1.2)", "aws-xray-sdk (>=0.93,!=0.96)", "idna (>=2.5,<3)", "cfn-lint (>=0.4.0)", "sshpubkeys (>=3.1.0)", "setuptools", "flask", "flask-cors"]
+ssm = ["PyYAML (>=5.1)"]
+xray = ["aws-xray-sdk (>=0.93,!=0.96)", "setuptools"]
 
 [[package]]
 name = "msrest"
@@ -1885,7 +1883,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pytelegrambotapi"
-version = "3.8.3"
+version = "4.0.0"
 description = "Python Telegram bot api."
 category = "main"
 optional = false
@@ -3168,7 +3166,7 @@ transformers = ["transformers"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<3.9"
-content-hash = "396f1752db40e6342c3b9ea788e33dfdbcb51748782e47a2a81108d00ec4ea16"
+content-hash = "8968c19115457750116767d567e2054491549965375988e0892a8a9986c94313"
 
 [metadata.files]
 absl-py = [
@@ -4049,8 +4047,8 @@ more-itertools = [
     {file = "more_itertools-8.8.0-py3-none-any.whl", hash = "sha256:2cf89ec599962f2ddc4d568a05defc40e0a587fbc10d5989713638864c36be4d"},
 ]
 moto = [
-    {file = "moto-2.0.11-py2.py3-none-any.whl", hash = "sha256:765d01bfa85807a5a180ae5b993b293c3cf56dd9c694d2834a30e9016b74a933"},
-    {file = "moto-2.0.11.tar.gz", hash = "sha256:569049a42bc63b6c4702fda0fee952e4d0088cd7f4989aa8eaaae0b222f7a2a1"},
+    {file = "moto-2.2.6-py2.py3-none-any.whl", hash = "sha256:e86b0d92bc5f80802a8ae0f338a4fdac15dab82c54eb12db93b356b69407effc"},
+    {file = "moto-2.2.6.tar.gz", hash = "sha256:21c838b63f44e24b9b5015a2cdcc5be7c1e1004e58a69fb7cac71383bce34535"},
 ]
 msrest = [
     {file = "msrest-0.6.21-py2.py3-none-any.whl", hash = "sha256:c840511c845330e96886011a236440fafc2c9aff7b2df9c0a92041ee2dee3782"},
@@ -4574,7 +4572,7 @@ pyrsistent = [
     {file = "pyrsistent-0.18.0.tar.gz", hash = "sha256:773c781216f8c2900b42a7b638d5b517bb134ae1acbebe4d1e8f1f41ea60eb4b"},
 ]
 pytelegrambotapi = [
-    {file = "pyTelegramBotAPI-3.8.3.tar.gz", hash = "sha256:afdd887fff42a963f13d09a1f4f5fd24aef08f4b8a594f2ac11e0a29022f1518"},
+    {file = "pyTelegramBotAPI-4.0.0.tar.gz", hash = "sha256:6accc4af505ee5b312689eaee1a9bc93cb6ea31a2d905a877c6b47f0888c3dcc"},
 ]
 pytest = [
     {file = "pytest-6.2.4-py3-none-any.whl", hash = "sha256:91ef2131a9bd6be8f76f1f08eac5c5317221d6ad1e143ae03894b862e8976890"},
